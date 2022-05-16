@@ -40,7 +40,7 @@ const Page = ({page}: any) => {
 
     return (
         <div className="content">
-            <p>
+            <div>
                 {
                     !selectedWord ?
                         contentArray.map((contentStr: string, index: number) =>
@@ -55,7 +55,7 @@ const Page = ({page}: any) => {
                             {selectedWord}
                         </div>
                 }
-            </p>
+            </div>
         </div>
     )
 };

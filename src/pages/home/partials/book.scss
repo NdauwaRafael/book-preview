@@ -1,17 +1,16 @@
+ .container {
+   width: 80%;
+   position: relative;
+   left: 50%;
+   transform: translateX(-50%);
+   border-radius: 2%;
+   margin-bottom: 30px;
+   perspective: 1200px;
+   padding: 40px;
+ }
+
 .book {
-  padding: 15px;
-  border-radius: 30px;
-  border-left: 4px solid black;
-  max-width: 50%;
-
-  height: 80%;
-  max-height: 500px;
-  min-height: 300px;
-
-  background:#255164;
-  position: absolute;
-  top: 0; left: 0; bottom: 0; right: 0;
-  margin: auto;
+  height: 500px;
 
   &-page {
     display: flex;
@@ -23,7 +22,7 @@
       justify-content: space-between;
       align-items: center;
       flex-direction: column;
-      margin-left: 10px;
+      //margin-left: 10px;
       flex: 1;
       position: relative;
       width: 50%;
@@ -31,16 +30,33 @@
       background-size: 100% 100%;
       backface-visibility: hidden;
       overflow: auto;
-      padding: 5% 8%;
-      color: aliceblue;
+      padding: 20px;
+      color: #000000;
       line-height: 20px;
+      transform-style: preserve-3d;
+
+      background:#fff;
+      min-width: 300px;
 
       &.right {
-        border-left: 5px solid #fff;
+        border-left: 5px solid #000;
+        border-radius: 0 10px 10px 0;
+        box-shadow: 2px 2px 15px -2px rgb(0 0 0 / 20%);
+        transform-origin: left;
+        transition: 0.7s ease-in-out;
+        transform-style: preserve-3d;
       }
 
+
       &.left {
-        border-right: 5px solid #fff;
+        border-right: 5px solid #000;
+        border-radius: 10px 0 0 10px;
+
+        background-position: right;
+        box-shadow: 2px 2px 15px -2px rgb(0 0 0 / 20%);
+
+        transition: 0.7s ease-in-out;
+        transform-style: preserve-3d;
 
       }
 
@@ -54,7 +70,7 @@
         align-items: center;
         display: flex;
         overflow: auto;
-
+        flex-wrap: wrap;
         font-size: 20px;
         line-height: 2.5;
 
@@ -85,6 +101,7 @@
       position: absolute;
       z-index: 100;
       bottom: 10px;
+      padding: 20px;
     }
   }
 }
