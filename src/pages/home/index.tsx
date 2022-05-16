@@ -19,7 +19,7 @@ const Home = () => {
 
 
     return (
-        <div>
+        <div className="container">
             {
                 books.map((book: any, index) => <Book {...book} key={index}/>)
             }
