@@ -7,18 +7,8 @@ const Page = ({page}: any) => {
     const [selectedWord, setSelectedWord] = useState(null);
 
 
-    const wordIndexes = (word: string) => {
-        const index = content.indexOf(word);
-        const endIndex = index + word.length;
-
-        return {index, endIndex};
-    }
-
     const getToken = (word: string) => {
-        const {index, endIndex} = wordIndexes(word);
-        const positions = [index, endIndex];
-
-        return tokens.filter((tkn: any) => tkn.position.join("|") === positions.join("|"));
+        return tokens.filter((tkn: any) => content.slice(...tkn.position) === word);
     }
 
     const wordClicked = (word: string) => {
@@ -46,7 +36,7 @@ const Page = ({page}: any) => {
                         contentArray.map((contentStr: string, index: number) =>
                             <span
                                 className={isClickable(contentStr) ? 'clickable' : ''}
-                                key={index} onClick={() => wordClicked(contentStr)}>{contentStr}</span>
+                                key={index} onClick={() => wordClicked(contentStr)}>|{contentStr}</span>
                         )
                         :
                         <div>
